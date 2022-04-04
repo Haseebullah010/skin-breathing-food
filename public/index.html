@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/index_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>Home</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+            <div class="container-fluid">
+                <a class="navbar-item" href="#">Complete Project</a>
+            
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </div>
+
+    <form action=" {%  url 'home' %} " method="POST" >
+        {% csrf_token %}
+        <div class="container mt-sm-5 my-1">
+            <div class="question ml-sm-5 pl-sm-5 pt-2">
+                <div class="py-2 h5"><b>what Can I help you with?</b></div>
+                <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                    <label class="options">Skin Condition      <input type="radio" name="Option3" value="1" > <span class="checkmark"></span></label> 
+                    <label class="options">Food Analysis       <input type="radio" name="Option3" value="2"> <span class="checkmark"></span> </label> 
+                    <label class="options">Breathing Problems  <input type="radio" name="Option3" value="3"> <span class="checkmark"></span> </label> 
+                </div>
+            </div>
+            
+            <div class="d-flex align-items-center pt-3">
+                <div class="ml-auto mr-sm-5">   <input type="submit" class="btn btn-outline-light" value="Submit"  ></div>
+            </div>
+        </div>
+    </form>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>
