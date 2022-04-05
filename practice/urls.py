@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path
 from polls import views
-from polls.views import Skin_Condition
+from polls.views import Skin_Condition,Food_Analysis
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -12,6 +12,8 @@ urlpatterns = [
     path('home/',views.home,name="home" ),
 
     path('Skin',Skin_Condition.as_view(),name="Skin_Condition" ),
+    path('Food',Food_Analysis.as_view(),name="Food_Analysis" ),
+    
     # path('prediction', ReceiveImages.as_view(),name="file_receive"),
 ]
 # + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
