@@ -54,7 +54,7 @@ class Skin_Condition(APIView):
                 destination.write(chunk)
                 print ("desdestination",destination )
 
-        api_url = "https://31nehibov4.execute-api.ap-southeast-1.amazonaws.com/v1"
+        api_url = "https://37csi2gzcb.execute-api.ap-southeast-1.amazonaws.com/v1"
         headers =  {"Content-Type":"image/jpg"}
         f = open(filepath , 'rb')
         photo = f.read()
