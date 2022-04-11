@@ -97,7 +97,7 @@ class Food_Analysis(APIView):
                 destination.write(chunk)
                 print ("desdestination",destination )
 
-        api_url = "https://lru3o7bn80.execute-api.ap-southeast-1.amazonaws.com/deploy-final"
+        api_url = "https://uerehl81gi.execute-api.ap-southeast-1.amazonaws.com/dev"
         headers =  {"Content-Type":"image/jpg"}
         f = open(filepath , 'rb')
         photo = f.read()
