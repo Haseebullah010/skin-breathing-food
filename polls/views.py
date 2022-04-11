@@ -77,50 +77,6 @@ class Skin_Condition(APIView):
 
         return render(request,"home.html")
 
-class Skin_Condition(APIView):
-    print ("in class")
-    def post(self, request, format=None):
-        print ("in function of class")
-
-        # file = request.data.get('fileup')
-        # print ("file",file)
-        
-        file = request.data.get('fileup')
-        staticPrefix = "static"
-        filename = str(file)
-        print ("filename",filename)
-
-        filepath = 'static/' + filename
-        with default_storage.open(filepath, 'wb+') as destination:
-            for chunk in file.chunks():
-                # print ("chunk",chunk)
-                destination.write(chunk)
-                print ("desdestination",destination )
-
-        api_url = "https://31nehibov4.execute-api.ap-southeast-1.amazonaws.com/v1"
-        headers =  {"Content-Type":"image/jpg"}
-        f = open(filepath , 'rb')
-        photo = f.read()
-        f.close()
-        response = requests.post(api_url, data=photo, headers=headers)
-        print(response.json())
-        data=response.json()
-        data =json.loads(data['body'])
-        if len(data['CustomLabels']) > 0:
-            name_confidence = []
-            for x in data['CustomLabels']:
-                name_confidence.append({
-                    "name":x['Name'],
-                    "confidence": round(x['Confidence'],2)
-                })
-            return render(request,"home.html",{'context':name_confidence})
-        else:
-            print("No data found")
-            return render(request,"home.html",{'context1':"No Disease Found"})
-
-        return render(request,"home.html")
-
-
 class Food_Analysis(APIView):
     print ("in class")
     def post(self, request, format=None):
